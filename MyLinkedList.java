@@ -1,0 +1,36 @@
+public class MyLinkedList<E> {
+     Node head;
+     int  numberNode;
+
+    public MyLinkedList(Object data) {
+         this.head =new Node(data);
+    }
+    public void add(int index,Object data){
+         Node temp=head;
+         Node node = new Node(data);
+         if(index<numberNode && index>=0){
+             for(int i=0;i<numberNode;i++){
+                 temp=temp.next;
+             }
+             node.next=temp.next;
+             temp.next=node;
+         }
+         else {
+             while (temp.next!=null){
+                 temp=temp.next;
+             }
+             temp.next=node;
+         }
+         numberNode++;
+     }
+
+     public void show(){
+        Node temp =head;
+        for(int i=0;i<=numberNode;i++){
+            System.out.println(temp.data);
+            temp=temp.next;
+        }
+         System.out.println("numberNode:"+numberNode);
+     }
+}
+
